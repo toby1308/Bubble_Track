@@ -1,0 +1,3 @@
+﻿  Track_Detector.cpp
+C:\Users\toby\source\repos\Track_Detector\Track_Detector\Track_Detector.cpp(140,57): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  Track_Detector.vcxproj -> C:\Users\toby\source\repos\Track_Detector\x64\Debug\Track_Detector.exe
