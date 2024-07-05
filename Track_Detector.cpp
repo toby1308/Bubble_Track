@@ -198,7 +198,8 @@ int main()
     img_display = img_display(Range(arr1[1][1], img_display.rows), Range(0, img_display.cols));
     arr2 = TemplateMatching(image, barTempl, 1);//Find barcode location
     Barcode(img_display, arr2[0][0], arr2[0][1] - arr1[1][1], barTempl);
-    find_track(img_display, 1000, 500);
+    //find_track(img_display, 1000, 500);
+    find_track(img_display, arr1[1][0],arr1[1][1])
     //rectangle(img_display, Point(500, 500), Point(600, 600), Scalar(0, 255, 255));
 
     img_display = img_display(Range(0, arr1[0][1]), Range(arr1[0][0], img_display.cols - 100));
