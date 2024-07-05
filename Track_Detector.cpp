@@ -167,7 +167,9 @@ void find_track(Mat source,int x, int y) {
     }
     imshow(image_window, source);
 }
-
+// need to find a way to detect paths accurately, best idea so far is to maybe take a staring section and either go through each coloumn making down spots
+// then plot the data to find the most likely paths 
+// or possibly use template matching to find the paths from that section
 int main()
 {
     int** arr1;
