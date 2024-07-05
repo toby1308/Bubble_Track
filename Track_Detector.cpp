@@ -147,7 +147,7 @@ void Barcode(Mat source, int x, int y, Mat templ) {
     putText(source, var, text_position, FONT_HERSHEY_COMPLEX, font_size, font_color, font_weight);
 }
 
-void find_track(Mat source,int x, int y) {
+void find_track_manual(Mat source,int x, int y) {
     int j = 0;
     int count = 0;
     int test;
@@ -166,6 +166,12 @@ void find_track(Mat source,int x, int y) {
         }
     }
     imshow(image_window, source);
+}
+
+
+void find_track_temp(Mat source, int x_value, int y_val){
+    //itergrate through matches until it fails or the quality isn't high enough and reutrn the locatin of each one in an array, can then follow up by decoding the 
+    // the track into an equation and then finally would be able to follow through with the track equation until it breaks.
 }
 // need to find a way to detect paths accurately, best idea so far is to maybe take a staring section and either go through each coloumn making down spots
 // then plot the data to find the most likely paths 
@@ -199,7 +205,7 @@ int main()
     arr2 = TemplateMatching(image, barTempl, 1);//Find barcode location
     Barcode(img_display, arr2[0][0], arr2[0][1] - arr1[1][1], barTempl);
     //find_track(img_display, 1000, 500);
-    find_track(img_display, arr1[1][0],arr1[1][1])
+    find_track(img_display, arr1[1][0],arr1[1][1]);
     //rectangle(img_display, Point(500, 500), Point(600, 600), Scalar(0, 255, 255));
 
     img_display = img_display(Range(0, arr1[0][1]), Range(arr1[0][0], img_display.cols - 100));
