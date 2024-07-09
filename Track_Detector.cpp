@@ -178,6 +178,7 @@ void find_track_temp(Mat source, int x_value, int upper_y_val,int lower_y_val){
     //create rectangles around the tracked locations to see best fits
     //need to create a seperate test to see if all the given locations actually contain a track
     //removed all non-matching tracks
+    //due to the large amount of possible tracks threshold matching is probably better(would need to add numpy)
 }
 
 // need to find a way to detect paths accurately, best idea so far is to maybe take a staring section and either go through each coloumn making down spots
