@@ -169,10 +169,17 @@ void find_track_manual(Mat source,int x, int y) {
 }
 
 
-void find_track_temp(Mat source, int x_value, int y_val){
+void find_track_temp(Mat source, int x_value, int upper_y_val,int lower_y_val){
     //itergrate through matches until it fails or the quality isn't high enough and reutrn the locatin of each one in an array, can then follow up by decoding the 
     // the track into an equation and then finally would be able to follow through with the track equation until it breaks.
+    int** location_array;
+    Mat image_section = source(Range(upper_y_val,lower_y_val),Range(x_val,x_val+100));
+    location_array = TemplateMatching(image_section,track_template,20);//need to add in the template for the track
+    //create rectangles around the tracked locations to see best fits
+    //need to create a seperate test to see if all the given locations actually contain a track
+    //removed all non-matching tracks
 }
+
 // need to find a way to detect paths accurately, best idea so far is to maybe take a staring section and either go through each coloumn making down spots
 // then plot the data to find the most likely paths 
 // or possibly use template matching to find the paths from that section
@@ -205,7 +212,7 @@ int main()
     arr2 = TemplateMatching(image, barTempl, 1);//Find barcode location
     Barcode(img_display, arr2[0][0], arr2[0][1] - arr1[1][1], barTempl);
     //find_track(img_display, 1000, 500);
-    find_track(img_display, arr1[1][0],arr1[1][1]);
+    find_track(img_display, arr1[1][0],arr1[1][1],arr1[0][1]);
     //rectangle(img_display, Point(500, 500), Point(600, 600), Scalar(0, 255, 255));
 
     img_display = img_display(Range(0, arr1[0][1]), Range(arr1[0][0], img_display.cols - 100));
